@@ -62,7 +62,7 @@
 #define STEPS 200
 
 // ***
-// *** Defin the microstep configure. This depends on the values of
+// *** Define the microstep configure. This depends on the values of
 // *** the MSn pins on the A4988 board.
 // ***
 // ***  MS1   MS2   MS3   Microstep    MICROSTEP
@@ -178,7 +178,7 @@ void demonstrateRelativeMoves()
   delay(PAUSE_BETWEEN_MOVES * 1000);
   
   // ***
-  // *** Rotate the stepper in the opposte direction a
+  // *** Rotate the stepper in the opposite direction a
   // *** half revolution and pause.
   // ***
   Serial.println("Rotating 1/2 reverse turn.");
