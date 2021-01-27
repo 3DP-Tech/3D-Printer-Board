@@ -62,8 +62,8 @@
 #define STEPS 200
 
 // ***
-// *** Define the microstep configure. This depends on the values of
-// *** the MSn pins on the A4988 board.
+// *** Define the microstep configuration. This depends on the
+// *** values (HIGH or LOW) of the MSx pins on the A4988 board.
 // ***
 // ***  MS1   MS2   MS3   Microstep    MICROSTEP
 // ***                    Resolution   Value
