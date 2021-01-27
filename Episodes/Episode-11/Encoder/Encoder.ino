@@ -76,7 +76,7 @@ void setup()
 
 void loop()
 {
-    // ***
+  // ***
   // *** Check if the encoder button was pushed.
   // ***
   int value = digitalRead(ENCODER_BTN);
