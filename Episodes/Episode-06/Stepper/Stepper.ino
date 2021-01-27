@@ -1,12 +1,60 @@
-
+/*
+  MIT License
+  
+  Copyright (c) 2021 Daniel Porrey
+  
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+  
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+*/
 #include <SpeedyStepper.h>
 
 // ***
-// *** These are the pin assignments for the A4988 board.
+// *** Uncomment one of the lines below to select 
+// *** the motor connection.
 // ***
-#define MOTOR_STEP_PIN 1
-#define MOTOR_DIRECTION_PIN 0
-#define MOTOR_EN 14
+#define E-MOTOR
+//#define Z-MOTOR
+//#define X-MOTOR
+//#define Y-MOTOR
+
+#include "MotorPins.h"
+
+// ********************************************************
+// ********************************************************
+// *** Motor Wiring
+// ***
+// *** Motors will differ in wiring. Buy motors that include
+// *** a datasheet or a pin diagram. For example, my motor
+// *** (NEMA 17 bipolar) describes the pins as 4-wire:
+// *** Black: A+, Green: A-, Red: B+, Blue: B-
+// ***
+// *** My wiring is as follows:
+// ***   A+ to 2B
+// ***   A- to 2A
+// ***   B+ to 1A
+// ***   B- to 1B
+// ***
+// *** This results in 
+// ***   Forward = Clockwise
+// ***   Reverse = Counterclockwise
+// ***
+// ********************************************************
+// ********************************************************
 
 // ***
 // *** Motor steps for 1 full revolution.
@@ -27,6 +75,12 @@
 // ***  HIGH  HIGH  HIGH  1/16 step     16
 // ***
 #define MICROSTEPS 16
+
+// ***
+// *** Define the number of seconds to
+// *** pause between moves.
+// ***
+#define PAUSE_BETWEEN_MOVES 2
 
 // ***
 // *** Create the SpeedyStepper instance.
@@ -64,6 +118,7 @@ void setup()
   stepper.setSpeedInRevolutionsPerSecond(1.0);
   stepper.setAccelerationInRevolutionsPerSecondPerSecond(1.0);
   Serial.println("Stepper motor driver configuration completed.");
+  Serial.print("Connected to: "); Serial.println(MOTOR_NAME);
   
   // ***
   // *** Setup has completed.
@@ -89,88 +144,90 @@ void loop()
   demonstrateAbsoluteMoves();
 
   // ***
-  // *** The rotation has completed. Delay 3 second before repeating the sequence.
+  // *** The rotation has completed. pause for 5 seconds before
+  // *** repeating the sequence.
   // ***
-  delay(3000);
+  Serial.println("Pausing for 5 seconds.");
+  delay(5000);
 }
 
 void demonstrateRelativeMoves()
 {
   // ***
   // *** Rotate the motor in the forward direction one revolution
-  // *** and pause 1 second.
+  // *** and pause.
   // ***
   Serial.println("Rotating 1 full forward turn.");
-  stepper.moveRelativeInSteps(1.0);
-  delay(1000);
+  stepper.moveRelativeInRevolutions(1.0);
+  delay(PAUSE_BETWEEN_MOVES * 1000);
 
   // ***
   // *** Rotate the stepper in the opposte direction one
-  // *** full revolution and pause 1 second.
+  // *** full revolution and pause.
   // ***
   Serial.println("Rotatin 1 full reverse turn.");
   stepper.moveRelativeInRevolutions(-1.0);
-  delay(1000);
+  delay(PAUSE_BETWEEN_MOVES * 1000);
 
   // ***
   // *** Rotate the motor in the forward direction a half
-  // *** revolution and pause 1 second.
+  // *** revolution and pause.
   // ***
   Serial.println("Rotating 1/2 forward turn.");
   stepper.moveRelativeInRevolutions(.5);
-  delay(1000);
+  delay(PAUSE_BETWEEN_MOVES * 1000);
   
   // ***
   // *** Rotate the stepper in the opposte direction a
-  // *** half revolution and pause 1 second.
+  // *** half revolution and pause.
   // ***
   Serial.println("Rotating 1/2 reverse turn.");
   stepper.moveRelativeInRevolutions(-.5);
-  delay(1000);
+  delay(PAUSE_BETWEEN_MOVES * 1000);
 }
 
 void demonstrateAbsoluteMoves()
 {
   // ***
-  // *** Move the motor to position .500 and pause 1 second.
+  // *** Move the motor to position .500 and pause.
   // ***
   Serial.println("Moving to position .500.");
   stepper.moveToPositionInRevolutions(.500);
-  delay(1000);
+  delay(PAUSE_BETWEEN_MOVES * 1000);
 
   // ***
-  // *** Move the motor to .650 and pause 1 second.
+  // *** Move the motor to .650 and pause.
   // ***
   Serial.println("Moving to position .650.");
   stepper.moveToPositionInRevolutions(.650);
-  delay(1000);
+  delay(PAUSE_BETWEEN_MOVES * 1000);
 
   // ***
-  // *** Move the motor to .765 and pause 1 second.
+  // *** Move the motor to .765 and pause.
   // ***
   Serial.println("Moving to position .765.");
   stepper.moveToPositionInRevolutions(.765);
-  delay(1000);
+  delay(PAUSE_BETWEEN_MOVES * 1000);
 
   // ***
-  // *** Move the motor to .085 and pause 1 second.
+  // *** Move the motor to .085 and pause.
   // ***
   Serial.println("Moving to position .085.");
   stepper.moveToPositionInRevolutions(.085);
-  delay(1000);
+  delay(PAUSE_BETWEEN_MOVES * 1000);
 
   // ***
-  // *** Move the motor to .160 and pause 1 second.
+  // *** Move the motor to .160 and pause.
   // ***
   Serial.println("Moving to position .160.");
   stepper.moveToPositionInRevolutions(.160);
-  delay(1000);
+  delay(PAUSE_BETWEEN_MOVES * 1000);
 
   // ***
-  // *** Move the motor to 0 and pause 1 second. The motor
+  // *** Move the motor to 0 and pause. The motor
   // *** should be back to the starting point.
   // ***
   Serial.println("Moving to position 0.");
   stepper.moveToPositionInRevolutions(0);
-  delay(1000);
+  delay(PAUSE_BETWEEN_MOVES * 1000);
 }
