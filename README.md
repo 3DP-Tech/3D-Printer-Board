@@ -1,7 +1,7 @@
 # 3D-Printer-Board
-Check out my [3DP Tech You Tube channel](https://www.youtube.com/playlist?list=PLOfiVhkRK3Go6M8yRqPx5GOqqJWyXBp_2). This repository contains support files for the "Build a 3D Printer Controller Board" series.
+Check out my [3DP Tech You Tube channel](https://www.youtube.com/playlist?list=PLOfiVhkRK3Go6M8yRqPx5GOqqJWyXBp_2). This repository contains support files for the "Build a 3D Printer Control Board" series.
 
-In this video series I explore the electronics of a 3D printer. I review the components that make up the controller board and explain how they interact with the firmware to control the 3D printer. I show you how to build a complete controller board for a 3D printer on a solderless breadboard.
+In this video series I explore the electronics of a 3D printer. I review the components that make up the control board and explain how they interact with the firmware to control a 3D printer. Finally, I show you how to build a complete control board for a 3D printer on a solderless breadboard.
 
 ## Episode Index
 
@@ -23,11 +23,11 @@ In this episode I demonstrate a few ways to connect to the microcontroller using
 
 ### Episode 5 - Power Supply
 
-In this episode I demonstrate how to add a 5V regulator to the breadboard so that the controller board can be run from a 12V or 24V power supply. I discuss the various ways to power the board while building it and cover the reason why a 12V or 24V power supply is necessary.
+In this episode I demonstrate how to add a 5V regulator to the breadboard so that the ler board can be run from a 12V or 24V power supply. I discuss the various ways to power the board while building it and cover the reason why a 12V or 24V power supply is necessary.
 
 ### Episode 6 - Stepper Motors
 
-In this episode I review the basic of stepper motors and demonstrate how to drive a stepper motor from an Arduino. I walk through adding the four necessary stepper motor controllers needed for the 3D printer.
+In this episode I review the basics of stepper motors and demonstrate how to drive a stepper motor from an Arduino. I walk through adding the four necessary stepper motor drivers needed for the 3D printer.
 
 ### Episode 7 - Hot End, Bed Heater and Fan
 
@@ -39,11 +39,11 @@ In this episode I describe the basic operation of a thermistor for reading tempe
 
 ### Episode 9 - End Stops
 
-In this episode I review the basics of monitoring a push button. I demonstrate how to add the end stop circuits to our printer controller board.
+In this episode I review the basics of monitoring a push button. I demonstrate how to add the end stop circuits to our printer  board.
 
 ### Episode 10 - LCD
 
-In this episode I walk through the LCD used on the 3D printer and demonstrate how to add it to the controller board.
+In this episode I walk through the LCD used on the 3D printer and demonstrate how to add it to the  board.
 
 ### Episode 11 - Encoder & Piezo Buzzer
 
@@ -51,15 +51,15 @@ In this episode I demonstrate the basic function of the rotary encoder used to m
 
 ### Episode 12 - MicroSD Card
 
-In this episode I demonstrate how to add a MicroSD card reader to the controller board.
+In this episode I demonstrate how to add a MicroSD card reader to the control board.
 
 ### Episode 13 - Flashing Marlin
 
-In this episode I walk through configuring Marlin firmware for the board I made and show how to flash it to the board. I also demonstrate the firmware operation on the controller board using a virtual/demo 3D printer.
+In this episode I walk through configuring Marlin firmware for the board I made and show how to flash it to the board. I also demonstrate the firmware operation on the control board using a virtual/demo 3D printer.
 
 ### Episode 14 - Connecting a Printer
 
-In this episode I connect the breadboard-based controller board to an actual 3D printer and print a 3D model.
+In this episode I connect the breadboard-based control board to an actual 3D printer and print a 3D model.
 
 ### Episode 15 - Expanding the Board
 
