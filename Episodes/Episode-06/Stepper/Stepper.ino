@@ -44,12 +44,13 @@
 // *** Black: A+, Green: A-, Red: B+, Blue: B-
 // ***
 // *** My wiring is as follows:
+// ***
 // ***   A+ to 2B
 // ***   A- to 2A
 // ***   B+ to 1A
 // ***   B- to 1B
 // ***
-// *** This results in 
+// *** This wiring results in 
 // ***   Forward = Clockwise
 // ***   Reverse = Counterclockwise
 // ***
