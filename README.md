@@ -11,7 +11,7 @@ In this episode I review the electronic components found in a 3D printer and giv
 
 ### Episode 2 - Arduino Core
 
-In this episode I demonstrate how to build a basic Arduino microcontroller on a breadboard. I guide you through the minimum circuit components required to get a ATMEGA1284P based Arduino up and running.
+In this episode I demonstrate how to build a basic Arduino microcontroller on a breadboard. I guide you through the minimum circuit components required to get an ATMEGA1284P based Arduino up and running.
 
 ### Episode 3 - Flashing the Bootloader
 
