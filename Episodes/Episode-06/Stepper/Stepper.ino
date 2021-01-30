@@ -40,17 +40,22 @@
 // ***
 // *** Motors will differ in wiring. Buy motors that include
 // *** a datasheet or a pin diagram. For example, my motor
-// *** (NEMA 17 bipolar) describes the pins as 4-wire:
-// *** Black: A+, Green: A-, Red: B+, Blue: B-
+// *** has a 6-pin connector with the wiring diagram shown
+// *** below.
+// *** 
+// *** 6-pin Connector
+// *** ===============================================
+// *** | A      | NC | B      | C      | NC | D      |
+// *** | Red    |    | Black  | Blue   |    | Green  |
+// *** | B+     |    | A+     | B-     |    | A-     |
+// *** | Pair 1 |    | Pair 2 | Pair 1 |    | Pair 2 |
+// *** ===============================================
+// *** wired as:
+// *** | 1B     |    | 2B     | 1A     |    | 2A     |
+// *** ===============================================
 // ***
-// *** My wiring is as follows:
-// ***
-// ***   A+ to 2B
-// ***   A- to 2A
-// ***   B+ to 1A
-// ***   B- to 1B
-// ***
-// *** This wiring results in 
+// *** This wiring results in
+// *** 
 // ***   Forward = Clockwise
 // ***   Reverse = Counterclockwise
 // ***
