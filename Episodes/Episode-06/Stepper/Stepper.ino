@@ -27,9 +27,9 @@
 // *** Uncomment one of the lines below to select 
 // *** the motor connection.
 // ***
-#define E-MOTOR
+//#define E-MOTOR
 //#define Z-MOTOR
-//#define X-MOTOR
+#define X-MOTOR
 //#define Y-MOTOR
 
 #include "MotorPins.h"
