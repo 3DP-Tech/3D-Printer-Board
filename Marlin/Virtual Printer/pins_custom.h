@@ -5,6 +5,20 @@
 //
 #define BOARD_INFO_NAME "Melzi (3DP-Tech)"
 
+
+// Alter timing for graphical display
+#if HAS_MARLINUI_U8GLIB
+  #ifndef BOARD_ST7920_DELAY_1
+    #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
+  #endif
+  #ifndef BOARD_ST7920_DELAY_2
+    #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
+  #endif
+  #ifndef BOARD_ST7920_DELAY_3
+    #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
+  #endif
+#endif
+
 #include "sanguino/pins_MELZI.h"
 
 // ATMEL ATMEGA1284 / SANGUINO / MELZI
@@ -36,15 +50,27 @@
 //
 // Pin 27 is connected to a piezo.
 //
+#ifdef BEEPER_PIN
+#undefine BEEPER_PIN
+#endif
+
 #define BEEPER_PIN        27 // Piezo
 
 //
 // For the ST9720 LCD display. The values define by the Melzi
 // board pins are not the same as this board.
 //
+#ifdef LCD_PINS_RS
 #undef LCD_PINS_RS
+#endif
+
+#ifdef LCD_PINS_ENABLE
 #undef LCD_PINS_ENABLE
+#endif
+
+#ifdef LCD_PINS_D4
 #undef LCD_PINS_D4
+#endif
 
 #define LCD_PINS_RS       28  // LCD CS
 #define LCD_PINS_ENABLE   17  // LCD DAT
@@ -53,9 +79,17 @@
 //
 // The encoder buttons also need to be redefined.
 //
+#ifdef BTN_ENC
 #undef BTN_ENC
+#endif
+
+#ifdef BTN_EN1
 #undef BTN_EN1
+#endif
+
+#ifdef BTN_EN2
 #undef BTN_EN2
+#endif
 
 #define BTN_ENC           16
 #define BTN_EN1           11
