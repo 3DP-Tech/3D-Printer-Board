@@ -51,7 +51,7 @@
 // Pin 27 is connected to a piezo.
 //
 #ifdef BEEPER_PIN
-#undefine BEEPER_PIN
+#undef BEEPER_PIN
 #endif
 
 #define BEEPER_PIN        27 // Piezo
