@@ -22,68 +22,65 @@
   SOFTWARE.
 */
 
-// ***
-// *** We are using the LED that is connected to D7 (PB7, physical pin 8, SCK) pin.
-// ***
+//
+// We are using the LED that is connected to D7 (PB7, physical pin 8, SCK) pin.
+//
 #define LED_PIN 7
 
-void setup()
-{
-  // ***
-  // *** Initialize the serial port.
-  // ***
+void setup() {
+  //
+  // Initialize the serial port.
+  //
   Serial.begin(500000);
 
-  // ***
-  // *** Wait for serial port to connect.
-  // ***
+  //
+  // Wait for serial port to connect.
+  //
   while (!Serial) {}
   Serial.println("Serial port initialized.");
 
-  // ***
-  // *** Initialize the LED pin.
-  // ***
+  //
+  // Initialize the LED pin.
+  //
   pinMode(LED_PIN, OUTPUT);
   Serial.println("LED pin initialized.");
 
-  // ***
-  // *** Setup has completed.
-  // ***
+  //
+  // Setup has completed.
+  //
   Serial.println("Ready.");
 }
 
-void loop()
-{
-  // ***
-  // *** Flash the LED 3 times.
+void loop() {
+  //
+  // Flash the LED 3 times.
   // **
-  for (int i = 0; i < 3; i++)
-  {
-    // ***
-    // *** Turn the LED on and wait 300 milliseconds.
-    // ***
+  for (int i = 0; i < 3; i++) {
+    //
+    // Turn the LED on and wait 300 milliseconds.
+    //
     digitalWrite(LED_PIN, HIGH);
     Serial.println("LED on.");
     delay(300);
 
-    // ***
-    // *** Turn the LED off and wait 500 milliseconds.
-    // ***
+    //
+    // Turn the LED off and wait 500 milliseconds.
+    //
     digitalWrite(LED_PIN, LOW);
     Serial.println("LED off.");
     delay(300);
   }
 
-  // ***
-  // *** Turn the LED on and wait two seconds.
-  // ***
+  //
+  // Turn the LED on and wait two seconds.
+  //
   digitalWrite(LED_PIN, HIGH);
   Serial.println("LED on.");
   delay(2000);
 
-  // ***
-  // *** Turn the LED off and wait one second.
-  // ***
+  //
+  // Turn the LED off and wait one second.
+  //
   digitalWrite(LED_PIN, LOW);
   Serial.println("LED off.");
   delay(1000);

@@ -1,9 +1,9 @@
 #ifndef NOTES_H
 #define NOTES_H
 
-// ***
-// *** From: https://www.arduino.cc/en/Tutorial/ToneMelody?from=Tutorial.Tone
-// ***
+//
+// From: https://www.arduino.cc/en/Tutorial/ToneMelody?from=Tutorial.Tone
+//
 #define NOTE_REST 0
 #define NOTE_B0  31
 #define NOTE_C1  33

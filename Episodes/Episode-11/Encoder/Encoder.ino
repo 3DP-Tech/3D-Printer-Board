@@ -22,101 +22,95 @@
   SOFTWARE.
 */
 
-// ***
-// *** The encoder is connected to analog pin D10 (PD2, physical pin 16) and D11 (PD3, pin physical 17).
-// *** The encoder button is connected to pin D16 (PC0, physical pin 22)
-// ***
+//
+// The encoder is connected to analog pin D10 (PD2, physical pin 16) and D11 (PD3, pin physical 17).
+// The encoder button is connected to pin D16 (PC0, physical pin 22)
+//
 #define ENCODER_1   11
 #define ENCODER_2   10
 #define ENCODER_BTN 16
 
-// ***
-// *** Track the encoder changes.
-// ***
+//
+// Track the encoder changes.
+//
 volatile bool _encoderPositionChanged = false;
 
-// ***
-// *** Track the encoder button.
-// ***
+//
+// Track the encoder button.
+//
 volatile bool _encoderButtonChanged = false;
 
-void setup()
-{
-  // ***
-  // *** Initialize the serial port.
-  // ***
+void setup() {
+  //
+  // Initialize the serial port.
+  //
   Serial.begin(500000);
 
-  // ***
-  // *** Wait for serial port to connect.
-  // ***
+  //
+  // Wait for serial port to connect.
+  //
   while (!Serial) {}
   Serial.println("Serial port initialized.");
 
-  // ***
-  // *** Initialize the encoder pins.
-  // ***
+  //
+  // Initialize the encoder pins.
+  //
   Serial.println("Initializing encoder.");
   pinMode(ENCODER_1, INPUT_PULLUP);
   pinMode(ENCODER_2, INPUT_PULLUP);
   pinMode(ENCODER_BTN, INPUT_PULLUP);
 
-  // ***
-  // *** Attach interrupts to each of the pins.
-  // ***
+  //
+  // Attach interrupts to each of the pins.
+  //
   Serial.println("Attaching interrupts.");
   attachInterrupt(digitalPinToInterrupt(ENCODER_1), onEncoderPositionChange, RISING);
   attachInterrupt(digitalPinToInterrupt(ENCODER_2), onEncoderPositionChange, RISING);
 
-  // ***
-  // *** Setup has completed.
-  // ***
+  //
+  // Setup has completed.
+  //
   Serial.println("Ready.");
 }
 
-void loop()
-{
-  // ***
-  // *** Check if the encoder button was pushed.
-  // ***
+void loop() {
+  //
+  // Check if the encoder button was pushed.
+  //
   int value = digitalRead(ENCODER_BTN);
   
-  if (value == LOW && !_encoderButtonChanged)
-  {
+  if (value == LOW && !_encoderButtonChanged) {
     _encoderButtonChanged = true;
     Serial.println("Encoder button pushed.");
   }
-  else if (value == HIGH && _encoderButtonChanged)
-  {
+  else if (value == HIGH && _encoderButtonChanged) {
     _encoderButtonChanged = false;
     Serial.println("Encoder button released.");
   }
 
-  // ***
-  // *** Check if the encoder position changed.
-  // ***
-  if (_encoderPositionChanged)
-  {
-    // ***
-    // *** Read the encoder A value.
-    // ***
+  //
+  // Check if the encoder position changed.
+  //
+  if (_encoderPositionChanged) {
+    //
+    // Read the encoder A value.
+    //
     int value1 = digitalRead(ENCODER_1);
     Serial.print("ENCODER_1 = "); Serial.println(value1 == HIGH ? "HIGH" : "LOW");
 
-    // ***
-    // *** Read the encoder B value.
-    // ***
+    //
+    // Read the encoder B value.
+    //
     int value2 = digitalRead(ENCODER_2);
     Serial.print("ENCODER_2 = "); Serial.println(value1 == HIGH ? "HIGH" : "LOW");
 
-    // ***
-    // *** Reset the flag.
-    // ***
+    //
+    // Reset the flag.
+    //
     _encoderPositionChanged = false;
   }
 }
 
-void onEncoderPositionChange()
-{
+void onEncoderPositionChange() {
   _encoderPositionChanged = true;
 }

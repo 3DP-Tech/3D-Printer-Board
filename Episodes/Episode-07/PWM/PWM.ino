@@ -22,82 +22,75 @@
   SOFTWARE.
 */
 
-// ***
-// *** Define the pin on which the MOSFET is connected. The layer cooling fan
-// *** will be connected to D4 (PB4, physical pin 5).
-// ***
+//
+// Define the pin on which the MOSFET is connected. The layer cooling fan
+// will be connected to D4 (PB4, physical pin 5).
+//
 #define MOSFET_PIN 4
 
-void setup()
-{
-  // ***
-  // *** Initialize the serial port.
-  // ***
+void setup() {
+  //
+  // Initialize the serial port.
+  //
   Serial.begin(500000);
 
-  // ***
-  // *** Wait for serial port to connect.
-  // ***
+  //
+  // Wait for serial port to connect.
+  //
   while (!Serial) {}
   Serial.println("Serial port initialized.");
 
-  // ***
-  // *** Start with the fan off. Pause for 2 seconds.
-  // ***
+  //
+  // Start with the fan off. Pause for 2 seconds.
+  //
   setFan(0, 2);
 
-  // ***
-  // *** Setup has completed.
-  // ***
+  //
+  // Setup has completed.
+  //
   Serial.println("Ready.");
 }
 
-void loop()
-{
-  // ***
-  // *** Kick start the fan for 500ms at 100% speed. Sometimes
-  // *** low PWM values can't get the fan going.
-  // ***
+void loop() {
+  //
+  // Kick start the fan for 500ms at 100% speed. Sometimes
+  // low PWM values can't get the fan going.
+  //
   setFan(1.0, .5);
 
-  // ***
-  // *** Loop through fan speeds by increments of 5%
-  // *** for 5 seconds at a time.
-  // ***
-  for (float speed = .35; speed < 1.01; speed += .05)
-  {
+  //
+  // Loop through fan speeds by increments of 5%
+  // for 5 seconds at a time.
+  //
+  for (float speed = .35; speed < 1.01; speed += .05) {
     setFan(speed, 5);
   }
 
-  // ***
-  // *** Turn the fan off.
-  // ***
+  //
+  // Turn the fan off.
+  //
   setFan(0, 10);
 }
 
 void setFan(float speed, float duration)
 {
-  if (speed == 0)
-  {
-    // ***
-    // *** Turn the fan off.
-    // ***
-    if (duration > 0)
-    {
+  if (speed == 0) {
+    //
+    // Turn the fan off.
+    //
+    if (duration > 0) {
       Serial.print("Turning the fan off for "); Serial.print(duration); Serial.println(" seconds.");
     }
-    else
-    {
+    else {
       Serial.println("Turning the fan off.");
     }
 
     analogWrite(MOSFET_PIN, 0);
   }
-  else
-  {
-    // ***
-    // *** Turn the fan off.
-    // ***
+  else {
+    //
+    // Turn the fan off.
+    //
     Serial.print("Running the fan at "); Serial.print(speed * 100); Serial.print("% for "); Serial.print(duration); Serial.println(" seconds.");
     analogWrite(MOSFET_PIN, (byte)(255 * speed));
   }

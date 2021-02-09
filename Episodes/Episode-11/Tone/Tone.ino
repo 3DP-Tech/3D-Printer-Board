@@ -24,32 +24,30 @@
 
 #include "MusicNotes.h"
 
-// ***
-// *** The piezo buzzer is connected to analog pin D7 (PA4, A4, physical pin 36).
-// ***
+//
+// The piezo buzzer is connected to analog pin D7 (PA4, A4, physical pin 36).
+//
 #define PIEZO_PIN 27
 
-void setup()
-{
-  // ***
-  // *** Initialize the serial port.
-  // ***
+void setup() {
+  //
+  // Initialize the serial port.
+  //
   Serial.begin(500000);
 
-  // ***
-  // *** Wait for serial port to connect.
-  // ***
+  //
+  // Wait for serial port to connect.
+  //
   while (!Serial) {}
   Serial.println("Serial port initialized.");
 
-  // ***
-  // *** Setup has completed.
-  // ***
+  //
+  // Setup has completed.
+  //
   Serial.println("Ready.");
 }
 
-void loop()
-{
+void loop() {
   /* Westminster Chime -> start : 20
       E4, G♯4, F♯4, B3
       E4, F♯4, G♯4, E4
@@ -59,9 +57,9 @@ void loop()
   
   Serial.println("Playing Westminster Chime.");
 
-  // ***
-  // *** Play the Westminster Chime.
-  // ***
+  //
+  // Play the Westminster Chime.
+  //
   tone(PIEZO_PIN, NOTE_E4); delay(800);
   tone(PIEZO_PIN, NOTE_GS4); delay(800);
   tone(PIEZO_PIN, NOTE_FS4); delay(800);
@@ -86,9 +84,9 @@ void loop()
   tone(PIEZO_PIN, NOTE_E4); delay(1600);
   noTone(PIEZO_PIN); delay(200);
 
-  // ***
-  // *** Wait 5 seconds.
-  // ***
+  //
+  // Wait 5 seconds.
+  //
   Serial.println("Playing completed. Waiting 5 seconds...");
   noTone(PIEZO_PIN);
   delay(5000);

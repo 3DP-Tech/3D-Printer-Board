@@ -24,78 +24,75 @@
 #include <Arduino.h>
 #include <U8g2lib.h>
 
-// ***
-// *** The LCD data pin is connected to D17 (PC1, physical pin 23).
-// ***
+//
+// The LCD data pin is connected to D17 (PC1, physical pin 23).
+//
 #define LCD_DATA 17
 
-// ***
-// *** The LCD data pin is connected to D30 (PA1, A1, physical pin 39).
-// ***
+//
+// The LCD data pin is connected to D30 (PA1, A1, physical pin 39).
+//
 #define LCD_CLK 30
 
-// ***
-// *** The LCD CS pin is connected to D2 (PA3, A3, physical pin 37).
-// ***
+//
+// The LCD CS pin is connected to D2 (PA3, A3, physical pin 37).
+//
 #define LCD_CS 28
 
-// ***
-// *** Create the LCD driver.
-// ***
+//
+// Create the LCD driver.
+//
 U8G2_ST7920_128X64_F_SW_SPI u8g2(U8G2_R0, LCD_CLK, LCD_DATA, LCD_CS, U8X8_PIN_NONE);
 
-void setup()
-{
-  // ***
-  // *** Initialize the serial port.
-  // ***
+void setup() {
+  //
+  // Initialize the serial port.
+  //
   Serial.begin(500000);
 
-  // ***
-  // *** Wait for serial port to connect.
-  // ***
+  //
+  // Wait for serial port to connect.
+  //
   while (!Serial) {}
   Serial.println("Serial port initialized.");
 
-  // ***
-  // *** Initialize the LCD library.
-  // ***
+  //
+  // Initialize the LCD library.
+  //
   u8g2.begin();
 
-  // ***
-  // *** Setup has completed.
-  // ***
+  //
+  // Setup has completed.
+  //
   Serial.println("Ready.");
 }
 
-void loop()
-{
-  for (int i = 0; i <= 70; i++)
-  {
-    // ***
-    // *** Clear the internal memory.
-    // ***
+void loop() {
+  for (int i = 0; i <= 70; i++) {
+    //
+    // Clear the internal memory.
+    //
     u8g2.clearBuffer();
 
-    // ***
-    // *** Choose a font.
-    // ***
+    //
+    // Choose a font.
+    //
     u8g2.setFont(u8g2_font_helvR08_te);
 
-    // ***
-    // *** Write something to the internal memory.
-    // ***
+    //
+    // Write something to the internal memory.
+    //
     Serial.print("["); Serial.print(i); Serial.println("] Hello 3D Printing World!");
     u8g2.drawStr(0, i, "Hello 3D Printing World!");
 
-    // ***
-    // *** Transfer internal memory to the display.
-    // ***
+    //
+    // Transfer internal memory to the display.
+    //
     u8g2.sendBuffer();
 
-    // ***
-    // *** Delay 1 second.
-    // ***
+    //
+    // Delay 1 second.
+    //
     delay(50);
   }
 }
