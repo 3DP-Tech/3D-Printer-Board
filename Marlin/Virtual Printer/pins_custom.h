@@ -1,12 +1,11 @@
 #pragma once
 
 //
-// Define the board name
+// Define the board name.
 //
 #define BOARD_INFO_NAME "Melzi (3DP-Tech)"
 
-
-// Alter timing for graphical display
+// Alter timing for graphical display.
 #if HAS_MARLINUI_U8GLIB
   #ifndef BOARD_ST7920_DELAY_1
     #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
@@ -19,6 +18,9 @@
   #endif
 #endif
 
+// Including the Melzi board sets up most pins
+// as needed, some however, will need to be 
+// redefined.
 #include "sanguino/pins_MELZI.h"
 
 // ATMEL ATMEGA1284 / SANGUINO / MELZI
