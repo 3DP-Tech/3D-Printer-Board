@@ -97,11 +97,6 @@ Ceramic: [https://www.amazon.com/gp/product/B07TWBVJVN](https://www.amazon.com/g
 **Sizes needed:**
 0.1 µF, 20 pF (if you purchase the crystal without them)
 
-### 1N4001 Diode
-A few of these are needed. They can be purchased in a pack of 10 from Adafruit.
-
-[https://www.adafruit.com/product/755](https://www.adafruit.com/product/755)
-
 ### LEDs
 Multiple LEDs in a variety of colors are used. It does not matter if you use the 3mm or 5mm size. I recommend at least three colors, red, green and blue. LEDs can be purchased on varitey packs or by color.
 
@@ -116,5 +111,5 @@ Multiple LEDs in a variety of colors are used. It does not matter if you use the
 https://www.adafruit.com/product/377
 
 ### Fancy Knob
-(vary optional)
+(very optional)
 https://www.adafruit.com/product/2056
