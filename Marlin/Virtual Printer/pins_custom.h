@@ -23,7 +23,7 @@
 
 // ATMEL ATMEGA1284 / SANGUINO / MELZI
 //
-//                                 +---\/---+
+//                                +---\/---+
 // E-DIR               (D0) PB0  1|         |40  PA0 (A0 / D31)  SDSS
 // E-STEP              (D1) PB1  2|         |39  PA1 (A1 / D30)  LCD-CLK
 // Z-DIR          INT2 (D2) PB2  3|         |38  PA2 (A2 / D29)  (unused)
@@ -44,7 +44,7 @@
 //  BED           PWM (D12) PD4 18|         |23  PC1 (D17) SDA    LCD-DAT
 //  HOT-END       PWM (D13) PD5 19|         |22  PC0 (D16) SCL    ENC-BTN
 //  XYE-EN        PWM (D14) PD6 20|         |21  PD7 (D15) PWM    X-STEP
-//                                 +--------+
+//                                +--------+
 //
 
 //
