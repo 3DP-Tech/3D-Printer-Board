@@ -169,7 +169,7 @@ void demonstrateRelativeMoves() {
   // Rotate the stepper in the opposte direction one
   // full revolution and pause.
   //
-  Serial.println("Rotatin 1 full reverse turn.");
+  Serial.println("Rotating 1 full reverse turn.");
   stepper.moveRelativeInRevolutions(-1.0);
   delay(PAUSE_BETWEEN_MOVES * 1000);
 
