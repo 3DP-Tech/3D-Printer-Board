@@ -53,30 +53,11 @@ void setup() {
 
 void loop() {
   //
-  // Flash the LED 3 times.
-  // **
-  for (int i = 0; i < 3; i++) {
-    //
-    // Turn the LED on and wait 300 milliseconds.
-    //
-    digitalWrite(LED_PIN, HIGH);
-    Serial.println("LED on.");
-    delay(300);
-
-    //
-    // Turn the LED off and wait 500 milliseconds.
-    //
-    digitalWrite(LED_PIN, LOW);
-    Serial.println("LED off.");
-    delay(300);
-  }
-
-  //
-  // Turn the LED on and wait two seconds.
+  // Turn the LED on and wait one second.
   //
   digitalWrite(LED_PIN, HIGH);
   Serial.println("LED on.");
-  delay(2000);
+  delay(1000);
 
   //
   // Turn the LED off and wait one second.

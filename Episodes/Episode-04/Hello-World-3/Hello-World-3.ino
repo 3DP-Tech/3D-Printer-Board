@@ -29,34 +29,59 @@
 
 void setup() {
   //
+  // Initialize the serial port.
+  //
+  Serial.begin(500000);
+
+  //
+  // Wait for serial port to connect.
+  //
+  while (!Serial) {}
+  Serial.println("Serial port initialized.");
+
+  //
   // Initialize the LED pin.
   //
   pinMode(LED_PIN, OUTPUT);
   Serial.println("LED pin initialized.");
+
+  //
+  // Setup has completed.
+  //
+  Serial.println("Ready.");
 }
 
 void loop() {
   //
-  // Turn the LED on.
+  // Flash the LED 3 times.
+  //
+  for (int i = 0; i < 3; i++) {
+    //
+    // Turn the LED on and wait 300 milliseconds.
+    //
+    digitalWrite(LED_PIN, HIGH);
+    Serial.println("LED on.");
+    delay(300);
+
+    //
+    // Turn the LED off and wait 300 milliseconds.
+    //
+    digitalWrite(LED_PIN, LOW);
+    Serial.println("LED off.");
+    delay(300);
+  }
+
+  //
+  // Turn the LED on and wait two seconds.
   //
   digitalWrite(LED_PIN, HIGH);
+  Serial.println("LED on.");
+  delay(2000);
 
   //
-  // Wait one second. The clock is running at 1MHz but the code
-  // was compiled with a setting of 16MHz so our tmng is off.
-  // Use a scalar of 1/16 for all times.
-  //
-  delay(1000 / 16);
-
-  //
-  // Turn the LED off.
+  // Turn the LED off and wait one second.
   //
   digitalWrite(LED_PIN, LOW);
-
-  //
-  // Wait one second. The clock is running at 1MHz but the code
-  // was compiled with a setting of 16MHz so our tmng is off.
-  // Use a scalar of 1/16 for all times.
-  //
-  delay(1000 / 16);
+  Serial.println("LED off.");
+  delay(1000);
 }
