@@ -9,4 +9,4 @@ Unzip the contents of the Marlin firmware into a folder on your hardrive and the
 * **Configuration.h** => [base]/Marlin-2.0.7.2/Marlin/
 * **pins_custom.h** => [base]/Marlin-2.0.7.2/Marlin/src/pins
 
-where **[base]** is there folder Marlin-2.0.7.2.zip was unpacked.
+where **[base]** is there folder Marlin-2.0.7.2.zip was unpacked in.
