@@ -55,7 +55,7 @@ void loop() {
 
   //
   // Wait one second. The clock is running at 1MHz but the code
-  // was compiled with a setting of 16MHz so our tmng is off.
+  // was compiled with a setting of 16MHz so our timing is off.
   // Use a scalar of 1/16 for all times.
   //
   delay(1000 / 16);
